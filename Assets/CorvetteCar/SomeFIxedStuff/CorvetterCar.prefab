@@ -359,9 +359,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925150708367680493}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.011857505, y: 0.0043178587, z: -0.00044296822}
-  m_LocalScale: {x: 0.016375894, y: 0.016375894, z: 0.016375894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1996628791212751503}
@@ -733,7 +733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1996628791212751503}
-  - component: {fileID: 3007968145950241129}
+  - component: {fileID: 394201525262034023}
   m_Layer: 0
   m_Name: ColliderFR
   m_TagString: Untagged
@@ -756,7 +756,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 998872579176485206}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!146 &3007968145950241129
+--- !u!146 &394201525262034023
 WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
