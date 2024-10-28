@@ -40,7 +40,7 @@ public class VehicleController : MonoBehaviour
         accelerationInput = Input.GetAxis("Vertical");
         TargetTurnInput = Input.GetAxis("Horizontal");
 
-        speedTxt.text = (carRb.velocity.magnitude * 3.6).ToString("0") + ("km/h");
+        speedTxt.text = (carRb.velocity.magnitude * 3.6f).ToString("0") + ("km/h");
     }
 
     private void FixedUpdate()
@@ -74,7 +74,23 @@ public class VehicleController : MonoBehaviour
             wc_BackLeft.motorTorque = accelerationInput * carHorsePower * -1;
             wc_BackRight.motorTorque = accelerationInput * carHorsePower * -1;
         }
+        // code for handbrake
 
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+
+                wc_BackLeft.brakeTorque = 1000f;
+                wc_BackRight.brakeTorque = 1000f;
+
+                
+            }
+            else
+            {
+                wc_BackLeft.brakeTorque = 0;
+                wc_BackRight.brakeTorque = 0;
+            }
+        }
 
         string KeyPressed;
         if (accelerationInput > 0)
