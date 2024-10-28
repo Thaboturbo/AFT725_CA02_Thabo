@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class VehicleController : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class VehicleController : MonoBehaviour
     public Rigidbody carRb;
     public float jumpAmount;
     public GameObject speedUI;
+    private Text speedTxt;
 
 
     [Header("Wheel Colliders")]
@@ -38,7 +40,7 @@ public class VehicleController : MonoBehaviour
         accelerationInput = Input.GetAxis("Vertical");
         TargetTurnInput = Input.GetAxis("Horizontal");
 
-        
+        speedTxt.text = (carRb.velocity.magnitude * 3.6).ToString("0") + ("km/h");
     }
 
     private void FixedUpdate()
