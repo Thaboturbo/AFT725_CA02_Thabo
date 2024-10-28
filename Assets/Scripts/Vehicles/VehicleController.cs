@@ -14,6 +14,9 @@ public class VehicleController : MonoBehaviour
     private float accelerationInput;
     public float carHorsePower = 400f;
     public float maxTurnAngle = 20f;
+    public Rigidbody carRb;
+    public float jumpAmount;
+    public GameObject speedUI;
 
 
     [Header("Wheel Colliders")]
@@ -91,7 +94,12 @@ public class VehicleController : MonoBehaviour
 
 
         Debug.Log("Input = " + KeyPressed + "||| Velocity = " + currentVelocity.normalized + "|| Dot Product = " + DotProduct);
+        // jump function
 
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            carRb.AddForce(Vector3.up *jumpAmount,ForceMode.Impulse );
+        }
   
 
 
