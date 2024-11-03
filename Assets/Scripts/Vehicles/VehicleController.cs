@@ -19,6 +19,7 @@ public class VehicleController : MonoBehaviour
     public float jumpAmount;
     public GameObject speedUI;
     private Text speedTxt;
+    private float checkGround;
 
 
     [Header("Wheel Colliders")]
@@ -40,7 +41,7 @@ public class VehicleController : MonoBehaviour
         accelerationInput = Input.GetAxis("Vertical");
         TargetTurnInput = Input.GetAxis("Horizontal");
 
-        speedTxt.text = (carRb.velocity.magnitude * 3.6f).ToString("0") + ("km/h");
+        
     }
 
     private void FixedUpdate()
@@ -90,6 +91,13 @@ public class VehicleController : MonoBehaviour
                 wc_BackLeft.brakeTorque = 0;
                 wc_BackRight.brakeTorque = 0;
             }
+            // jump function
+
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                carRb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
+            }
         }
 
         string KeyPressed;
@@ -112,15 +120,6 @@ public class VehicleController : MonoBehaviour
 
 
         Debug.Log("Input = " + KeyPressed + "||| Velocity = " + currentVelocity.normalized + "|| Dot Product = " + DotProduct);
-        // jump function
-
-        if (Input.GetKeyDown(KeyCode.Space)) 
-        {
-            carRb.AddForce(Vector3.up *jumpAmount,ForceMode.Impulse );
-        }
-  
-
-
     }
     private float ApproachTargetValueWithIncrement(float currentValue, float targetValue, float increment)
     {
